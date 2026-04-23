@@ -1,0 +1,269 @@
+/* RoomPages.css — Shared styles for Vent Room and Tailgate Room */
+
+/* ── Page shell ──────────────────────────────────────────── */
+.room-page {
+  min-height: 100vh;
+  background: #0d0d0d;
+  color: #fddbd5;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.room-header {
+  padding: 20px 16px 24px;
+  background: linear-gradient(180deg, #200f0c 0%, #0d0d0d 100%);
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.room-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.room-header__logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.room-back {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ae8882;
+  background: none;
+  border: 1px solid #2a2a2a;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.room-back:hover {
+  color: #feb700;
+  border-color: #feb700;
+}
+
+.room-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.room-header__icon {
+  font-size: 28px;
+}
+
+.room-header__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.room-header__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #ae8882;
+  line-height: 1.4;
+}
+
+/* ── Compose bar ─────────────────────────────────────────── */
+.room-compose {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.room-compose__avatar {
+  width: 36px;
+  height: 36px;
+  background: #cc0000;
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.room-compose__input {
+  flex: 1;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  color: #fddbd5;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.room-compose__input::placeholder { color: #5e3f3a; }
+.room-compose__input:focus { border-color: #feb700; }
+
+.room-compose__btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+.room-compose__btn:hover { opacity: 0.85; }
+
+.room-compose--tailgate {
+  padding: 16px;
+  border-bottom: none;
+}
+
+.room-compose__btn--full {
+  width: 100%;
+  padding: 14px;
+  background: #feb700;
+  color: #1a0700;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* ── Feed ────────────────────────────────────────────────── */
+.room-feed {
+  padding: 0 16px;
+}
+
+.room-post {
+  padding: 16px 0;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.room-post__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.room-post__user {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #feb700;
+}
+
+.room-post__time {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #5e3f3a;
+}
+
+.room-post__badge {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  background: #feb700;
+  padding: 3px 8px;
+}
+
+.room-post__content-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.room-post__emoji {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.room-post__text {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #fddbd5;
+  line-height: 1.5;
+}
+
+.room-post__text--title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.room-post__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.room-post__grit,
+.room-post__likes {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #ae8882;
+}
+
+.room-post__react {
+  font-size: 18px;
+  background: none;
+  border: 1px solid #2a2a2a;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.room-post__react:hover {
+  border-color: #feb700;
+}
+
+.room-nav-spacer { height: 72px; }
+
+/* ═══════════════════════════════════════════════════════════
+   DESKTOP (≥ 768px) — full-bleed, no max-width gaps
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+  .room-header {
+    padding: 32px 48px 28px;
+  }
+  .room-header__title { font-size: 36px; }
+  .room-feed { padding: 0 48px; }
+  .room-compose { padding: 16px 48px; }
+}
+
+@media (min-width: 1024px) {
+  .room-header {
+    padding: 40px 80px 32px;
+  }
+  .room-feed { padding: 0 80px; }
+  .room-compose { padding: 16px 80px; }
+}
+
+@media (min-width: 1440px) {
+  .room-header {
+    padding: 48px 120px 36px;
+  }
+  .room-feed { padding: 0 120px; }
+  .room-compose { padding: 20px 120px; }
+  .room-header__title { font-size: 42px; }
+}

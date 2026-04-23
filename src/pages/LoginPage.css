@@ -1,0 +1,283 @@
+/* LoginPage.css — exact Stitch "BSS Sign In" visual tokens */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600;700&display=swap');
+
+/* ── Page: full-bleed photo background ─────────────────────── */
+.screen {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center 65%;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screen-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10,4,2,0.15) 0%,
+    rgba(10,4,2,0.40) 35%,
+    rgba(10,4,2,0.72) 70%,
+    rgba(10,4,2,0.88) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Login content column ───────────────────────────────────── */
+.login-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  padding: 48px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* left-aligned per mobile screenshot */
+}
+
+/* Logo */
+.login-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  align-self: center;
+  margin-bottom: 12px;
+}
+
+/* "ENTER THE TUNNEL" — Oswald 700, huge, left-aligned */
+.login-headline {
+  font-family: 'Oswald', sans-serif;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  /* subtle text-shadow so headline punches through the photo */
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+/* Lane labels */
+.lane-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.fast-lane   { color: #feb700; }
+.manual-lane { color: #cc0000; }
+.create-lane { color: #feb700; }
+
+/* ── SSO buttons — 4px radius per DESIGN.md ────────────────── */
+.sso-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: opacity 0.15s;
+}
+.sso-btn:active { opacity: 0.8; }
+
+/* Google — white bg, dark text (per screenshot) */
+.sso-google, .sso-google-light {
+  background: #ffffff;
+  color: #3c4043;
+}
+
+/* Facebook — brand blue (per screenshot) */
+.sso-facebook {
+  background: #1877F2;
+  color: #ffffff;
+}
+
+/* ── OR divider ─────────────────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: #5e3f3a;
+}
+.divider-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #e8bdb6;
+  letter-spacing: 1px;
+}
+
+/* ── Input fields — DESIGN.md: bg #111111, border #2a2a2a ──── */
+.input-field {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.input-field input {
+  width: 100%;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  color: #fddbd5;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input-field input::placeholder { color: #ae8882; }
+.input-field input:focus         { border-color: #feb700; } /* DESIGN.md focus */
+
+.input-field--pw input { padding-right: 46px; }
+.pw-eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ae8882;
+  font-size: 16px;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Forgot link */
+.forgot-btn {
+  background: none;
+  border: none;
+  color: #e8bdb6;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  text-align: right;
+  width: 100%;
+  margin-bottom: 14px;
+  transition: color 0.15s;
+}
+.forgot-btn:hover { color: #feb700; }
+
+/* ── CTA — gold button per screenshots ─────────────────────── */
+.cta-btn {
+  width: 100%;
+  padding: 16px;
+  background: #feb700;
+  color: #1a0700;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.cta-btn:hover  { opacity: 0.9; }
+.cta-btn:active { opacity: 0.8; }
+
+/* ── Footer text ────────────────────────────────────────────── */
+.footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #e8bdb6;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+.footer-accent {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #feb700;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.footer-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(232,189,182,0.6);
+  margin-top: 8px;
+  text-align: center;
+  width: 100%;
+}
+.footer-sub-link {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DESKTOP (≥ 768px) — sign_in_2 screenshot:
+   Logo above card, content inside dark semi-transparent panel
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+  .login-screen {
+    align-items: center;
+    justify-content: center;
+    /* on desktop the fans photo should still bleed fully behind the card */
+    background-attachment: fixed;
+  }
+
+  .screen-overlay {
+    /* slightly darker on desktop so the card reads cleanly against it */
+    background: linear-gradient(
+      180deg,
+      rgba(10,4,2,0.45) 0%,
+      rgba(10,4,2,0.65) 100%
+    );
+  }
+
+  .login-content {
+    /* Dark card — rgba(13,13,13,0.92) per DESIGN.md */
+    background: rgba(13,13,13,0.92);
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    padding: 36px 36px 40px;
+    align-items: flex-start;
+  }
+
+  .login-logo {
+    align-self: center;
+    width: 72px;
+    height: 72px;
+  }
+
+  .login-headline {
+    font-size: 36px;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  }
+}

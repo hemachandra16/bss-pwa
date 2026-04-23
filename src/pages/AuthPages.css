@@ -1,0 +1,375 @@
+/* ═══════════════════════════════════════════════════════════════
+   AuthPages.css
+   Pixel-faithful to the 4 Stitch screens in the zip:
+     broad_street_style_sign_in_1  (mobile)
+     broad_street_style_sign_in_2  (desktop)
+     broad_street_style_sign_up_1  (mobile)
+     broad_street_style_sign_up_2  (desktop)
+   Tokens: DESIGN.md  "Grit and Glory"
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Page shell: full-bleed background ──────────────────────── */
+.auth-page {
+  position: relative;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* mobile: content flows top-down, no card */
+  padding: 56px var(--margin-mobile) 40px;
+}
+
+.auth-page--signup {
+  background-position: center center;
+}
+
+/* Gradient overlay – darkens the bg image so text is legible */
+.auth-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  /* mobile login: heavier at bottom per Stitch screenshot */
+  background: linear-gradient(
+    180deg,
+    rgba(20, 8, 5, 0.35) 0%,
+    rgba(20, 8, 5, 0.55) 45%,
+    rgba(20, 8, 5, 0.80) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.auth-page--signup::before {
+  background: rgba(10, 6, 3, 0.72);
+}
+
+/* ── All page content sits above the overlay ─────────────────── */
+.auth-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Logo ────────────────────────────────────────────────────── */
+.auth-logo {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  margin-bottom: var(--stack-md);
+}
+
+/* ── Headline: "ENTER THE TUNNEL" / "CREATE YOUR ACCOUNT" ────── */
+/* Mobile: left-aligned, huge, full-width – matches screenshot 1 */
+.auth-headline {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+/* Signup desktop has it centered inside the card */
+.auth-headline--center {
+  text-align: center;
+}
+
+/* ── Lane label  e.g. "⚡ FAST LANE" ──────────────────────────── */
+.lane-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 12px;    /* label-caps from DESIGN.md */
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 100%;
+  margin-bottom: var(--stack-md);
+}
+
+.lane-label--gold { color: var(--secondary-container); }   /* #feb700 */
+.lane-label--red  { color: var(--primary-container); }    /* #cc0000 */
+
+/* ── SSO Buttons – per DESIGN.md: 4px radius, brand colors ───── */
+.sso-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;          /* DESIGN.md: SSO = 4px exception */
+  cursor: pointer;
+  border: none;
+  margin-bottom: var(--stack-sm);
+  transition: opacity 0.15s ease;
+}
+.sso-btn:active { opacity: 0.85; }
+
+.sso-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+/* Google – white background (per screenshots 1 & 2) */
+.sso-btn--google {
+  background: #ffffff;
+  color: #3c4043;
+}
+
+/* Facebook – brand blue (per screenshots 1 & 2 & 3 & 4) */
+.sso-btn--facebook {
+  background: #1877F2;
+  color: #ffffff;
+}
+
+/* ── OR divider ──────────────────────────────────────────────── */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  margin: var(--stack-md) 0;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--outline-variant);
+}
+.auth-divider span {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  letter-spacing: 1px;
+}
+
+/* ── Input fields – DESIGN.md: bg #111111, border #2a2a2a ───── */
+.input-wrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--stack-sm);
+}
+
+.auth-input {
+  width: 100%;
+  background: var(--input-bg);         /* #111111 */
+  border: 1px solid var(--input-border); /* #2a2a2a */
+  border-radius: 8px;                  /* visible in screenshots */
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.auth-input::placeholder { color: var(--on-surface-variant); opacity: 0.7; }
+.auth-input:focus {
+  border-color: var(--secondary-container); /* #FFB800 – DESIGN.md focus rule */
+}
+
+.input-wrap--pw .auth-input { padding-right: 48px; }
+
+.pw-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--on-surface-variant);
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* ── Forgot link ─────────────────────────────────────────────── */
+.forgot-link {
+  width: 100%;
+  text-align: right;
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  margin-bottom: var(--stack-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: color 0.15s;
+}
+.forgot-link:hover { color: var(--secondary-container); }
+
+/* ── CTA button – DESIGN.md: Primary uses #CC0000, but these     */
+/*    CTAs are gold (#feb700) per the screenshots specifically ─── */
+.cta-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: var(--btn-cta-bg);       /* #feb700 */
+  color: var(--btn-cta-text);          /* dark brown */
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: opacity 0.15s ease;
+}
+.cta-btn:hover  { opacity: 0.9; }
+.cta-btn:active { opacity: 0.8; }
+
+/* ── Footer links ────────────────────────────────────────────── */
+.auth-footer {
+  margin-top: var(--stack-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--stack-sm);
+}
+
+.auth-footer p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  text-align: center;
+}
+
+.footer-accent {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--secondary-container);   /* #feb700 gold */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+}
+
+.footer-accent--white {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ── Legal text ──────────────────────────────────────────────── */
+.auth-legal {
+  margin-top: var(--stack-md);
+  font-size: 11px;
+  color: rgba(253, 219, 213, 0.4);
+  text-align: center;
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+.auth-copyright {
+  font-size: 10px;
+  color: rgba(253,219,213,0.25);
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DESKTOP (≥ 768px)
+   Reference: sign_in_2 and sign_up_2 screenshots
+   Layout: Content vertically centered, inside a dark glass CARD
+   ═══════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  .auth-page {
+    align-items: center;
+    justify-content: center;
+    padding: 40px var(--margin-mobile);
+    background-position: center center;
+  }
+
+  .auth-page::before {
+    background: rgba(10, 6, 3, 0.65);
+  }
+
+  /* The card panel — rgba(13,13,13,0.92) from DESIGN.md */
+  .auth-content {
+    background: var(--card-bg);          /* rgba(13,13,13,0.92) */
+    border: 1px solid var(--input-border); /* 1px solid #2a2a2a */
+    border-radius: 4px;                  /* DESIGN.md: cards = sharp edges, but desktop screenshots show slight round */
+    padding: 40px 36px;
+    max-width: 420px;                    /* DESIGN.md max_width */
+    width: 100%;
+  }
+
+  /* Logo sits above the card (overlapping), centered */
+  .auth-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--stack-md);
+  }
+
+  /* Desktop headline: centered per sign_in_2 screenshot */
+  .auth-headline {
+    text-align: center;
+    font-size: 36px;
+  }
+
+  /* Lane label centered on desktop */
+  .lane-label {
+    justify-content: flex-start;
+  }
+
+  /* Headline for signup on desktop is INSIDE card, below SSO */
+  .auth-headline--below-sso {
+    font-size: 32px;
+    text-align: center;
+    margin-top: var(--stack-sm);
+    margin-bottom: var(--stack-sm);
+  }
+}
+
+@media (min-width: 1024px) {
+  .auth-content {
+    padding: 48px 44px;
+  }
+  .auth-logo { width: 88px; height: 88px; }
+}
+
+/* ── Signup: logo is bigger on mobile per sign_up_1 screenshot ── */
+.auth-logo--signup {
+  width: 140px;
+  height: 140px;
+}
+@media (min-width: 768px) {
+  .auth-logo--signup { width: 88px; height: 88px; }
+}
+
+/* ── Mobile-only / Desktop-only headline show/hide ────────────── */
+/* On mobile: headline is ABOVE FAST LANE (sign_up_1)             */
+/* On desktop: headline is BELOW the OR divider (sign_up_2)       */
+.auth-headline--mobile-only  { display: block; }
+.auth-headline--desktop-only { display: none;  }
+
+@media (min-width: 768px) {
+  .auth-headline--mobile-only  { display: none;  }
+  .auth-headline--desktop-only { display: block; }
+  /* Desktop headline inside card — matches sign_up_2 */
+  .auth-headline--center {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: var(--stack-sm);
+  }
+}

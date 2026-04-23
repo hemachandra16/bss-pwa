@@ -1,0 +1,221 @@
+.signup-screen {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* NO fixed — prevents login's fixed bg from bleeding through */
+  background-attachment: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 8, 20, 0.75);
+  pointer-events: none;
+}
+
+/* ── Signup content column ──────────────────────────────────── */
+.signup-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  padding: 48px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Logo — large on mobile (sign_up_1) */
+.signup-logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  align-self: center;
+  margin-bottom: 12px;
+}
+
+/* "CREATE YOUR ACCOUNT" headline */
+.signup-headline {
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 6px;
+  width: 100%;
+  text-align: left;
+}
+
+/* Shared lane labels, SSO, divider, input, cta — same as login */
+.lane-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.fast-lane   { color: #feb700; }
+.create-lane { color: #feb700; }
+
+.sso-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: opacity 0.15s;
+}
+.sso-btn:active { opacity: 0.8; }
+
+/* Google signup — white (per sign_up_1 and sign_up_2) */
+.sso-google-light {
+  background: #ffffff;
+  color: #3c4043;
+}
+
+/* Facebook — blue */
+.sso-facebook {
+  background: #1877F2;
+  color: #ffffff;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: #5e3f3a;
+}
+.divider-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #e8bdb6;
+  letter-spacing: 1px;
+}
+
+.input-field {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.input-field input {
+  width: 100%;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  color: #fddbd5;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input-field input::placeholder { color: #ae8882; }
+.input-field input:focus         { border-color: #feb700; }
+
+.input-field--pw input { padding-right: 46px; }
+.pw-eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ae8882;
+  font-size: 16px;
+  padding: 0;
+  line-height: 1;
+}
+
+.cta-btn {
+  width: 100%;
+  padding: 16px;
+  background: #feb700;
+  color: #1a0700;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  margin-top: 4px;
+}
+.cta-btn:hover  { opacity: 0.9; }
+.cta-btn:active { opacity: 0.8; }
+
+.footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #e8bdb6;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+.footer-accent-white {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DESKTOP (≥ 768px) — sign_up_2 screenshot:
+   Smaller logo, dark card, FAST LANE + SSO at top, then
+   OR → CREATE YOUR ACCOUNT headline → CREATE YOUR LANE → form
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+  .signup-screen { align-items: center; justify-content: center; }
+
+  .signup-overlay { background: rgba(8,4,2,0.72); }
+
+  .signup-content {
+    background: rgba(13,13,13,0.92);
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    padding: 36px 36px 40px;
+    align-items: flex-start;
+  }
+
+  .signup-logo {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 8px;
+  }
+
+  .signup-headline {
+    font-size: 28px;
+    text-align: center;
+  }
+}
