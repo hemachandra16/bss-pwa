@@ -8,7 +8,6 @@
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
   position: relative;
 }
 
@@ -18,7 +17,8 @@
   background-color: rgba(0, 0, 0, 0.4); /* Darkens the background slightly */
   display: flex;
   justify-content: center;
-  align-items: center;
+  overflow-y: auto;
+  padding: 20px 0;
 }
 
 .login-container {
@@ -30,6 +30,7 @@
   flex-direction: column;
   position: relative;
   box-shadow: 0 0 40px rgba(0,0,0,0.8);
+  margin: auto;
 }
 
 @media (min-width: 768px) {
@@ -37,7 +38,7 @@
     min-height: auto;
     border-radius: 8px;
     border: 1px solid #333;
-    margin: 40px 0;
+    margin: auto; /* Centers it perfectly without cutting off top */
   }
 }
 
