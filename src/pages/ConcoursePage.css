@@ -1,241 +1,199 @@
-/* ConcoursePage.css — Grit and Glory: The Concourse */
-.concourse {
+.concourse-screen {
   min-height: 100vh;
-  background: #0d0d0d;
-  color: #fddbd5;
-  font-family: 'Inter', sans-serif;
+  background-color: #1a1a1a; /* Dark solid background */
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-/* ── Header ──────────────────────────────────────────────── */
-.concourse-header {
-  padding: 20px 16px 28px;
-  background: linear-gradient(180deg, #200f0c 0%, #0d0d0d 100%);
-  border-bottom: 1px solid #2a2a2a;
+.cc-scroll-area {
+  padding: 0 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* HEADER */
+.cc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 20px;
+}
+
+.cc-header-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ccc;
+  letter-spacing: 0.5px;
+}
+
+.cc-avatar {
+  color: #c9b19e; /* Light tan color from mockup */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cc-avatar .material-symbols-outlined {
+  font-size: 28px;
+}
+
+/* SECTION */
+.cc-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.cc-section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ccc;
+  margin-bottom: 16px;
   text-align: center;
 }
 
-.concourse-header__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
+/* COMMUNITIES GRID */
+.cc-communities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-.concourse-header__logo {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-}
-
-.concourse-logout-btn {
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #ae8882;
-  background: none;
-  border: 1px solid #2a2a2a;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.concourse-logout-btn:hover {
-  color: #cc0000;
-  border-color: #cc0000;
-}
-
-.concourse-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin-bottom: 4px;
-}
-
-.concourse-subtitle {
-  font-family: 'Oswald', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #feb700;
-  margin-bottom: 12px;
-}
-
-.concourse-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #ae8882;
-  line-height: 1.5;
-}
-
-/* ── Team Cards ──────────────────────────────────────────── */
-.concourse-teams {
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.concourse-team-card {
+.cc-team-card {
+  background-color: #262626;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 12px;
   display: flex;
   align-items: center;
   gap: 12px;
-  width: 100%;
-  background: rgba(13, 13, 13, 0.92);
-  border: 1px solid #2a2a2a;
-  padding: 16px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: left;
-  position: relative;
+  transition: background-color 0.2s;
+}
+.cc-team-card:active {
+  background-color: #333;
+}
+
+.cc-team-logo-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1.5px solid #d32f2f; /* Red border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(211, 47, 47, 0.1);
   overflow: hidden;
 }
-.concourse-team-card:hover {
-  border-color: #5e3f3a;
-  transform: translateX(4px);
-}
-.concourse-team-card:active {
-  transform: translateX(2px);
+
+.cc-team-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.concourse-team-card__accent {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
+.cc-team-icon {
+  color: #ccc;
+  font-size: 20px;
 }
 
-.concourse-team-card__icon {
+.cc-team-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #eee;
+  text-transform: uppercase;
+}
+
+/* BOX OFFICE */
+.cc-box-office-title {
+  background-color: #2c2c2e;
+  border-radius: 8px;
+  padding: 8px 0;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ccc;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.cc-tickets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.cc-ticket-item {
+  background-color: #222222;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #333;
+}
+
+.cc-ticket-sport-icon {
+  color: #888;
   font-size: 32px;
-  flex-shrink: 0;
-  margin-left: 8px;
 }
 
-.concourse-team-card__info {
+.cc-ticket-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  min-width: 0;
+  gap: 4px;
 }
 
-.concourse-team-card__sport {
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #ae8882;
-}
-
-.concourse-team-card__name {
-  font-family: 'Oswald', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-.concourse-team-card__record {
+.cc-ticket-matchup {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
+  font-weight: 700;
+  color: #eee;
+}
+
+.cc-ticket-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #888;
+}
+
+.cc-buy-btn {
+  background-color: #3e5154; /* Faded green-grey */
+  color: #eee;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
   font-weight: 600;
-  color: #feb700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cc-buy-btn:active {
+  background-color: #4e6569;
 }
 
-.concourse-team-card__arrow {
-  font-size: 18px;
-  color: #5e3f3a;
-  flex-shrink: 0;
-  transition: color 0.2s;
-}
-.concourse-team-card:hover .concourse-team-card__arrow {
-  color: #feb700;
-}
-
-/* ── Back Link ───────────────────────────────────────────── */
-.concourse-back {
-  padding: 20px 16px;
-  text-align: center;
-}
-
-.concourse-back-btn {
-  font-family: 'Oswald', sans-serif;
+.cc-filter-btn {
+  background-color: #3e5154;
+  color: #eee;
+  border: none;
+  border-radius: 24px;
+  padding: 14px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #ae8882;
-  background: none;
-  border: 1px solid #2a2a2a;
-  padding: 12px 24px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  width: 100%;
+  text-transform: uppercase;
 }
-.concourse-back-btn:hover {
-  color: #feb700;
-  border-color: #feb700;
+.cc-filter-btn:active {
+  background-color: #4e6569;
 }
-
-/* Spacer */
-.concourse-nav-spacer { height: 72px; }
-
-/* ═══════════════════════════════════════════════════════════
-   DESKTOP (≥ 768px) — full-bleed, no max-width gaps
-   ═══════════════════════════════════════════════════════════ */
-@media (min-width: 768px) {
-  .concourse-header {
-    padding: 40px 48px 32px;
-  }
-  .concourse-title {
-    font-size: 48px;
-  }
-  .concourse-teams {
-    padding: 32px 48px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  .concourse-back {
-    padding: 24px 48px;
-  }
-  .concourse-back-btn { max-width: 400px; margin: 0 auto; }
-}
-
-@media (min-width: 1024px) {
-  .concourse-header {
-    padding: 48px 80px 36px;
-  }
-  .concourse-teams {
-    padding: 36px 80px;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .concourse-back {
-    padding: 28px 80px;
-  }
-  .concourse-title {
-    font-size: 56px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .concourse-header {
-    padding: 56px 120px 40px;
-  }
-  .concourse-teams {
-    padding: 40px 120px;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-  }
-  .concourse-back {
-    padding: 32px 120px;
-  }
-}
-

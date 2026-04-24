@@ -1,150 +1,100 @@
-/**
- * HomeBasePage.jsx
- * Source: Stitch screen "Home Base - Client Source of Truth Version"
- *         (5ba508dad5eb492f9ededea130a69f01) — mobile
- *         (4690867cbd8e45118b88eac6653910f7) — desktop
- *
- * Sections:
- *   1. Welcome Header + Grit Meter
- *   2. Real-Time Scoreboard
- *   3. The Vent Room (CTA)
- *   4. The Tailgate Room (CTA)
- *   5. Bottom Nav (The Concourse)
- */
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
 import BottomNav from '../components/BottomNav'
-import bssLogo from '../assets/bss_logo.png'
 import './HomeBasePage.css'
-
-/* Fake live scores for prototype */
-const liveScores = [
-  { id: 1, sport: 'NFL', away: 'DAL', home: 'PHI', awayScore: 17, homeScore: 28, quarter: 'Q3 · 4:12', live: true },
-  { id: 2, sport: 'NBA', away: 'BOS', home: 'PHI', awayScore: 94, homeScore: 101, quarter: 'Q4 · 2:30', live: true },
-  { id: 3, sport: 'NHL', away: 'NYR', home: 'PHI', awayScore: 2, homeScore: 3, quarter: 'P2 · 8:45', live: true },
-  { id: 4, sport: 'MLB', away: 'ATL', home: 'PHI', awayScore: 3, homeScore: 5, quarter: 'B7', live: false },
-]
 
 export default function HomeBasePage() {
   const navigate = useNavigate()
-  const { user, logout } = useAuth()
-  const displayName = user?.name || 'Commissioner'
-
-  const handleLogout = () => {
-    logout()
-    navigate('/', { replace: true })
-  }
 
   return (
-    <div className="homebase">
-      {/* ── HEADER ────────────────────────────────────────────── */}
+    <div className="homebase page-container">
+      {/* HEADER */}
       <header className="hb-header">
-        <div className="hb-header__top">
-          <img src={bssLogo} alt="BSS" className="hb-header__logo" />
-          <button
-            id="btn-logout"
-            className="hb-logout-btn"
-            onClick={handleLogout}
-          >
-            LOGOUT
-          </button>
+        <div className="hb-header-left">
+          <div className="hb-avatar" onClick={() => navigate('/profile')} style={{cursor: 'pointer'}}>
+            <span className="material-symbols-outlined">person</span>
+          </div>
+          <div className="hb-welcome-text">
+            <div className="hb-welcome-line1">WELCOME,</div>
+            <div className="hb-welcome-line2">COMMISSIONER<br/>DAMIAN.</div>
+          </div>
         </div>
-        <h1 className="hb-welcome">
-          WELCOME,<br />
-          <span className="hb-welcome__name">{displayName.toUpperCase()}.</span>
-        </h1>
-
-        {/* Grit Meter */}
-        <div className="hb-grit">
-          <div className="hb-grit__header">
-            <span className="hb-grit__label">YOUR GRIT METER</span>
-            <span className="hb-grit__value">72 / 100</span>
+        <div className="hb-grit-meter">
+          <div className="hb-grit-chart">
+            {/* Simple CSS representation of the sparkline chart from mockup */}
+            <svg viewBox="0 0 100 30" preserveAspectRatio="none">
+              <path d="M0,30 L0,20 L10,15 L20,22 L30,10 L40,18 L50,5 L60,12 L70,8 L80,2 L90,10 L100,0 L100,30 Z" fill="#D22B2B" opacity="0.8"/>
+              <polyline points="0,20 10,15 20,22 30,10 40,18 50,5 60,12 70,8 80,2 90,10 100,0" fill="none" stroke="#ff4d4d" strokeWidth="2"/>
+            </svg>
           </div>
-          <div className="hb-grit__track">
-            <div className="hb-grit__fill" style={{ width: '72%' }} />
-          </div>
+          <div className="hb-grit-label">1,250 GRIT POINTS</div>
         </div>
       </header>
 
-      {/* ── SCOREBOARD ────────────────────────────────────────── */}
-      <section className="hb-section" id="scoreboard">
-        <h2 className="hb-section__title">
-          <span className="hb-section__icon">📊</span>
+      {/* SCOREBOARD */}
+      <section className="hb-scoreboard-container">
+        <div className="hb-scoreboard-title">
           REAL-TIME SCOREBOARD
-        </h2>
-        <div className="hb-scores">
-          {liveScores.map(g => (
-            <div key={g.id} className={`hb-score-card${g.live ? ' hb-score-card--live' : ''}`}>
-              <div className="hb-score-card__badge">
-                {g.live && <span className="hb-live-dot" />}
-                <span className="hb-score-card__sport">{g.sport}</span>
-                <span className="hb-score-card__time">{g.quarter}</span>
-              </div>
-              <div className="hb-score-card__teams">
-                <div className="hb-score-card__team">
-                  <span className="hb-score-card__abbr">{g.away}</span>
-                  <span className="hb-score-card__score">{g.awayScore}</span>
-                </div>
-                <span className="hb-score-card__vs">vs</span>
-                <div className="hb-score-card__team hb-score-card__team--home">
-                  <span className="hb-score-card__abbr">{g.home}</span>
-                  <span className="hb-score-card__score">{g.homeScore}</span>
-                </div>
-              </div>
+        </div>
+        
+        <div className="hb-scoreboard-content">
+          {/* Game 1 */}
+          <div className="hb-game hb-game-featured">
+            <div className="hb-game-header">
+              <span className="hb-team-name">PHILLIES</span>
+              <span className="hb-game-status hb-status-live">(LIVE - 4th)</span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── VENT ROOM ─────────────────────────────────────────── */}
-      <section className="hb-section" id="vent-room-section">
-        <div className="hb-cta-card hb-cta-card--vent" onClick={() => navigate('/vent-room')}>
-          <div className="hb-cta-card__icon">🔥</div>
-          <div className="hb-cta-card__content">
-            <h3 className="hb-cta-card__title">THE VENT ROOM</h3>
-            <p className="hb-cta-card__sub">Let it out. No judgment. Raw takes only.</p>
+            <div className="hb-score-large">3 - 1</div>
+            <div className="hb-team-name-sub">NY METS</div>
           </div>
-          <span className="hb-cta-card__arrow">→</span>
-        </div>
-      </section>
-
-      {/* ── TAILGATE ROOM ─────────────────────────────────────── */}
-      <section className="hb-section" id="tailgate-room-section">
-        <div className="hb-cta-card hb-cta-card--tailgate" onClick={() => navigate('/tailgate-room')}>
-          <div className="hb-cta-card__icon">🍻</div>
-          <div className="hb-cta-card__content">
-            <h3 className="hb-cta-card__title">THE TAILGATE ROOM</h3>
-            <p className="hb-cta-card__sub">Pre-game hype. Recipes. Meet up.</p>
+          
+          <div className="hb-divider"></div>
+          
+          {/* Game 2 */}
+          <div className="hb-game hb-game-row">
+            <div className="hb-team-name">UNION <span className="hb-status-muted">(FINAL)</span></div>
+            <div className="hb-score-small">2 - 2 <span className="hb-status-muted">(Draw)</span></div>
           </div>
-          <span className="hb-cta-card__arrow">→</span>
+          
+          <div className="hb-divider"></div>
+          
+          {/* Game 3 */}
+          <div className="hb-game hb-game-col">
+            <div className="hb-status-muted">WORLD CUP (PRE-GAME)</div>
+            <div className="hb-matchup">
+              <span className="hb-team-name">USA</span> vs <span className="hb-team-name">ENGLAND</span> <span className="hb-status-muted">(In 3h 12m)</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ── Quick Links ───────────────────────────────────────── */}
-      <section className="hb-section hb-quick-links" id="quick-links">
-        <h2 className="hb-section__title">QUICK LINKS</h2>
-        <div className="hb-links-grid">
-          <button className="hb-link-card" onClick={() => navigate('/concourse')}>
-            <span className="material-symbols-outlined">stadium</span>
-            <span>Concourse</span>
-          </button>
-          <button className="hb-link-card" onClick={() => navigate('/vent-room')}>
-            <span className="material-symbols-outlined">local_fire_department</span>
-            <span>Vent Room</span>
-          </button>
-          <button className="hb-link-card" onClick={() => navigate('/tailgate-room')}>
-            <span className="material-symbols-outlined">sports_bar</span>
-            <span>Tailgate</span>
-          </button>
-          <button className="hb-link-card">
-            <span className="material-symbols-outlined">inventory_2</span>
-            <span>Locker Room</span>
-          </button>
-        </div>
+      {/* COMMUNITY ENTRY */}
+      <section className="hb-community-cards">
+        <button className="hb-card" onClick={() => navigate('/vent-room')}>
+          <div className="hb-card-top">COMMUNITY ENTRY</div>
+          <div className="hb-card-title">THE VENT<br/>ROOM</div>
+          <div className="hb-card-icon hb-card-icon-red">
+            <span className="material-symbols-outlined icon-large">flag</span>
+          </div>
+          <div className="hb-card-footer">
+            <span className="material-symbols-outlined icon-small">lock</span>
+            <span>LOGIN REQUIRED TO<br/>ENTER COMMUNITY</span>
+          </div>
+        </button>
+
+        <button className="hb-card" onClick={() => navigate('/tailgate-room')}>
+          <div className="hb-card-top">COMMUNITY ENTRY</div>
+          <div className="hb-card-title">THE TAILGATE<br/>ROOM</div>
+          <div className="hb-card-icons">
+            <span className="material-symbols-outlined icon-large hb-icon-red">outdoor_grill</span>
+            <span className="material-symbols-outlined icon-large hb-icon-yellow">sports_bar</span>
+          </div>
+          <div className="hb-card-footer">
+            <span className="material-symbols-outlined icon-small">lock</span>
+            <span>LOGIN REQUIRED TO<br/>ENTER COMMUNITY</span>
+          </div>
+        </button>
       </section>
 
-      {/* Spacer for bottom nav */}
-      <div className="hb-nav-spacer" />
       <BottomNav />
     </div>
   )

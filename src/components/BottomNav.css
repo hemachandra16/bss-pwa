@@ -1,18 +1,18 @@
-/* BottomNav.css — Concourse-style bottom navigation */
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--max-width-app);
   z-index: 100;
   display: flex;
   align-items: stretch;
   justify-content: space-around;
-  background: rgba(13, 13, 13, 0.96);
-  border-top: 1px solid #2a2a2a;
-  padding: 6px 0 max(6px, env(safe-area-inset-bottom));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #1C1C1E;
+  border-top: 1px solid var(--color-border);
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+  height: var(--nav-height);
 }
 
 .bottom-nav__item {
@@ -20,43 +20,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  padding: 6px 4px;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 4px;
   background: none;
   border: none;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  color: #ae8882;
+  color: var(--color-text-muted);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  text-align: center;
 }
 
 .bottom-nav__item:hover,
 .bottom-nav__item:focus-visible {
-  color: #fddbd5;
+  color: var(--color-text-main);
 }
 
 .bottom-nav__item--active {
-  color: #feb700;
+  color: var(--color-text-main);
 }
 
 .bottom-nav__icon {
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1;
 }
 
 .bottom-nav__label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-size: 8px; /* Very small text matching mockup */
+  font-weight: 500;
   text-transform: uppercase;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
-/* Desktop: still fixed at bottom, full width */
-@media (min-width: 768px) {
-  .bottom-nav__label { font-size: 10px; }
-  .bottom-nav__item { padding: 8px 8px; }
+  line-height: 1.1;
 }

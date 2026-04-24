@@ -1,130 +1,105 @@
-/**
- * ConcoursePage.jsx
- * Source: Stitch screen "The Concourse - Team Gateway"
- *         (650df5de028648b8bafccd89656319f0) — mobile
- *         (b002fcfba1b44abc9fcc155f6fc62ce4) — desktop
- *
- * Team Gateway: choose your team to enter the community.
- */
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
 import BottomNav from '../components/BottomNav'
-import bssLogo from '../assets/bss_logo.png'
 import './ConcoursePage.css'
 
-const teams = [
-  {
-    id: 'eagles',
-    name: 'EAGLES',
-    sport: 'NFL',
-    color: '#004C54',
-    accent: '#A5ACAF',
-    icon: '🦅',
-    record: '11-2',
-  },
-  {
-    id: 'sixers',
-    name: '76ERS',
-    sport: 'NBA',
-    color: '#006BB6',
-    accent: '#ED174C',
-    icon: '🏀',
-    record: '18-8',
-  },
-  {
-    id: 'phillies',
-    name: 'PHILLIES',
-    sport: 'MLB',
-    color: '#E81828',
-    accent: '#002D72',
-    icon: '⚾',
-    record: '34-22',
-  },
-  {
-    id: 'flyers',
-    name: 'FLYERS',
-    sport: 'NHL',
-    color: '#F74902',
-    accent: '#000000',
-    icon: '🏒',
-    record: '15-10',
-  },
-  {
-    id: 'union',
-    name: 'UNION',
-    sport: 'MLS',
-    color: '#071B2C',
-    accent: '#B58B1F',
-    icon: '⚽',
-    record: '8-4-2',
-  },
-]
+import phillyFootball from '../assets/philly_football.png'
+import phillyBaseball from '../assets/philly_baseball.png'
+import phillyHockey from '../assets/philly_hockey.png'
+import phillyBasketball from '../assets/philly_basketball.png'
 
 export default function ConcoursePage() {
   const navigate = useNavigate()
-  const { logout } = useAuth()
-
-  const handleLogout = () => {
-    logout()
-    navigate('/', { replace: true })
-  }
 
   return (
-    <div className="concourse">
-      {/* Header */}
-      <header className="concourse-header">
-        <div className="concourse-header__top">
-          <img src={bssLogo} alt="BSS" className="concourse-header__logo" />
-          <button
-            id="btn-logout-concourse"
-            className="concourse-logout-btn"
-            onClick={handleLogout}
-          >
-            LOGOUT
-          </button>
+    <div className="concourse-screen page-container">
+      {/* HEADER */}
+      <header className="cc-header">
+        <div className="cc-header-title">BSS: THE CONCOURSE</div>
+        <div className="cc-avatar" onClick={() => navigate('/profile')} style={{cursor: 'pointer'}}>
+          <span className="material-symbols-outlined">account_circle</span>
         </div>
-        <h1 className="concourse-title">THE CONCOURSE</h1>
-        <p className="concourse-subtitle">(TEAM GATEWAY)</p>
-        <p className="concourse-desc">Choose your team to enter the community.</p>
       </header>
 
-      {/* Team Cards */}
-      <section className="concourse-teams" id="team-list">
-        {teams.map(team => (
-          <button
-            key={team.id}
-            id={`team-${team.id}`}
-            className="concourse-team-card"
-            onClick={() => navigate('/home')}
-          >
-            <div
-              className="concourse-team-card__accent"
-              style={{ background: team.color }}
-            />
-            <div className="concourse-team-card__icon">{team.icon}</div>
-            <div className="concourse-team-card__info">
-              <span className="concourse-team-card__sport">{team.sport}</span>
-              <span className="concourse-team-card__name">{team.name}</span>
-              <span className="concourse-team-card__record">{team.record}</span>
-            </div>
-            <span className="concourse-team-card__arrow">→</span>
-          </button>
-        ))}
-      </section>
+      <div className="cc-scroll-area">
+        {/* COMMUNITIES */}
+        <section className="cc-section">
+          <h2 className="cc-section-title">The Concourse (Communities)</h2>
+          <div className="cc-communities-grid">
+            <button className="cc-team-card eagles-border" onClick={() => navigate('/vent-room')}>
+              <div className="cc-team-logo-placeholder">
+                <img src={phillyFootball} alt="Philly Football" className="cc-team-logo-img" />
+              </div>
+              <span className="cc-team-name">EAGLES</span>
+            </button>
+            <button className="cc-team-card phillies-border" onClick={() => navigate('/vent-room')}>
+              <div className="cc-team-logo-placeholder">
+                <img src={phillyBaseball} alt="Philly Baseball" className="cc-team-logo-img" />
+              </div>
+              <span className="cc-team-name">PHILLIES</span>
+            </button>
+            <button className="cc-team-card flyers-border" onClick={() => navigate('/vent-room')}>
+              <div className="cc-team-logo-placeholder">
+                <img src={phillyHockey} alt="Philly Hockey" className="cc-team-logo-img" />
+              </div>
+              <span className="cc-team-name">FLYERS</span>
+            </button>
+            <button className="cc-team-card union-border" onClick={() => navigate('/vent-room')}>
+              <div className="cc-team-logo-placeholder">
+                <img src={phillyBasketball} alt="Philly Basketball" className="cc-team-logo-img" />
+              </div>
+              <span className="cc-team-name">SIXERS</span>
+            </button>
+          </div>
+        </section>
 
-      {/* Back to Home Base */}
-      <div className="concourse-back">
-        <button
-          id="btn-back-home"
-          className="concourse-back-btn"
-          onClick={() => navigate('/home')}
-        >
-          ← BACK TO HOME BASE
-        </button>
+        {/* BOX OFFICE */}
+        <section className="cc-section">
+          <div className="cc-box-office-title">BOX OFFICE</div>
+          <div className="cc-tickets-list">
+            <div className="cc-ticket-item">
+              <span className="material-symbols-outlined cc-ticket-sport-icon">sports_football</span>
+              <div className="cc-ticket-info">
+                <div className="cc-ticket-matchup">EAGLES vs. GIANTS</div>
+                <div className="cc-ticket-date">- Oct 22</div>
+              </div>
+              <button className="cc-buy-btn">BUY TICKETS</button>
+            </div>
+
+            <div className="cc-ticket-item">
+              <span className="material-symbols-outlined cc-ticket-sport-icon">sports_baseball</span>
+              <div className="cc-ticket-info">
+                <div className="cc-ticket-matchup">PHILLIES vs. METS</div>
+                <div className="cc-ticket-date">- Oct 28</div>
+              </div>
+              <button className="cc-buy-btn">BUY TICKETS</button>
+            </div>
+
+            <div className="cc-ticket-item">
+              <span className="material-symbols-outlined cc-ticket-sport-icon">sports_hockey</span>
+              <div className="cc-ticket-info">
+                <div className="cc-ticket-matchup">FLYERS vs. CAPITALS</div>
+                <div className="cc-ticket-date">- Nov 3</div>
+              </div>
+              <button className="cc-buy-btn">BUY TICKETS</button>
+            </div>
+
+            <div className="cc-ticket-item">
+              <span className="material-symbols-outlined cc-ticket-sport-icon">sports_soccer</span>
+              <div className="cc-ticket-info">
+                <div className="cc-ticket-matchup">UNION vs. NYCFC</div>
+                <div className="cc-ticket-date">- Nov 10</div>
+              </div>
+              <button className="cc-buy-btn">BUY TICKETS</button>
+            </div>
+          </div>
+
+          <button className="cc-filter-btn">FILTER TICKET EVENTS</button>
+        </section>
+        
+        {/* Padding for bottom nav */}
+        <div style={{ height: '80px' }}></div>
       </div>
 
-      {/* Spacer for bottom nav */}
-      <div className="concourse-nav-spacer" />
       <BottomNav />
     </div>
   )

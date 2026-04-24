@@ -1,0 +1,322 @@
+/* VentRoomPage.css - Fully Refined UI matching mockup */
+
+.ventroom.page-container {
+  background: 
+    linear-gradient(rgba(10, 10, 12, 0.2), rgba(10, 10, 12, 0.2)),
+    url('/vent-bg.png') repeat;
+  background-color: #1a1a1c;
+  position: relative;
+  padding: 16px; /* Override global bottom padding since no BottomNav here */
+}
+
+.vr-header-new {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.vr-back-arrow {
+  background: none;
+  border: none;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.vr-title-container {
+  flex: 1;
+  text-align: center;
+}
+
+.vr-title-main {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.5px;
+}
+
+.vr-avatar-new {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-bg-base);
+}
+.vr-avatar-new .material-symbols-outlined {
+  font-size: 20px;
+}
+
+/* GRIT STATS */
+.vr-grit-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0;
+}
+
+.vr-grit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222527; /* Dark box like the messages */
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.vr-grit-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.vr-grit-points {
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFC107; /* Yellow/Gold for points */
+}
+
+.vr-grit-multiplier {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #2b3031; /* Subtle dark slate background */
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.vr-grit-red-flag {
+  width: 16px;
+  height: 16px;
+  background-color: #d12222;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vr-flag-icon {
+  font-size: 12px;
+  color: #fff;
+}
+
+.vr-grit-multiplier-text {
+  font-size: 11px;
+  font-weight: 700;
+  color: #A0B2A6; /* Soft green-grey text */
+  letter-spacing: 0.5px;
+}
+
+/* CHAT INTERFACE */
+.vr-chat-interface {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 140px; /* Space for input and active venters */
+  position: relative;
+}
+
+/* Base message card styling for everyone */
+.vr-chat-message {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background-color: #222527; /* Dark rounded box for messages */
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.vr-chat-avatar-wrapper {
+  padding-top: 2px;
+}
+
+.vr-chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #4A4A4C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-main);
+  overflow: hidden; /* For when we add actual images later */
+}
+.vr-chat-avatar .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Special styling for Referee */
+.vr-referee-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #2C2C2E;
+  border: 1px solid var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-main);
+  background-image: repeating-linear-gradient(
+    45deg,
+    #1C1C1E,
+    #1C1C1E 4px,
+    #2C2C2E 4px,
+    #2C2C2E 8px
+  );
+}
+.vr-referee-avatar .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.vr-chat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.vr-chat-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vr-chat-author {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vr-chat-time {
+  font-size: 12px;
+  color: #666;
+}
+
+.vr-chat-text {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+/* REFEREE MESSAGE OVERRIDE */
+.vr-referee-message {
+  background-color: #2a2a22; /* Dark olive background */
+  border: 1px solid #6b6233; /* Thin gold border */
+}
+
+.vr-referee-author {
+  color: #c9aa60;
+}
+
+.vr-chat-bot-tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: #c9aa60;
+}
+
+.vr-referee-text {
+  color: #c9aa60;
+}
+
+/* ACTIVE VENTERS OVERLAY */
+.vr-active-venters {
+  position: absolute;
+  bottom: calc(var(--nav-height) + 75px); /* Safely above the input bar */
+  right: 16px; /* Aligned with the input wrapper */
+  background-color: rgba(30, 32, 34, 0.9); /* Darker, slightly transparent */
+  border: 1px solid rgba(80, 90, 100, 0.3); /* Softer subtle border */
+  border-radius: 8px;
+  padding: 8px 10px;
+  width: 120px; /* Narrower */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 5;
+}
+
+.vr-av-title {
+  font-size: 9px; /* Smaller title */
+  font-weight: 700;
+  color: #fff; /* White title like mockup */
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.vr-av-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Tighter list */
+}
+
+.vr-av-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vr-av-avatar {
+  width: 14px; /* Much smaller avatars */
+  height: 14px;
+}
+.vr-av-avatar .material-symbols-outlined {
+  font-size: 10px;
+}
+
+.vr-av-name {
+  font-size: 10px; /* Smaller text */
+  color: #b0b0b0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* INPUT SECTION */
+.vr-input-section-new {
+  position: absolute;
+  bottom: calc(var(--nav-height) + 16px);
+  left: 16px;
+  right: 16px;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.vr-input-wrapper-new {
+  display: flex;
+  align-items: center;
+  background-color: #2b3031;
+  border-radius: 24px;
+  padding: 6px 6px 6px 20px;
+  border: 1px solid #3a4a52; /* Match input border to active venters border */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.vr-input-new {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--color-text-main);
+  font-size: 14px;
+  outline: none;
+}
+.vr-input-new::placeholder {
+  color: #667885; /* Lighter grey for placeholder */
+}
+
+.vr-post-btn-new {
+  background-color: #3a4a52; /* Darker slate from mockup */
+  color: #A0B2A6; /* Text color of button */
+  border: none;
+  border-radius: 18px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}

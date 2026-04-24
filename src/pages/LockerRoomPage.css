@@ -1,0 +1,241 @@
+.locker-screen {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.locker-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+}
+
+.locker-container {
+  width: 100%;
+  max-width: 420px;
+  background-color: rgba(24, 24, 26, 0.95);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.locker-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+@media (min-width: 768px) {
+  .locker-container {
+    height: 90vh;
+    min-height: auto;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin: 40px 0;
+  }
+}
+
+.locker-content-inner {
+  position: relative;
+  z-index: 1;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.locker-header-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.locker-top-icon {
+  color: #888;
+  font-size: 24px;
+}
+
+.locker-logo {
+  width: 100px;
+  margin-top: 10px;
+}
+
+.locker-top-right {
+  display: flex;
+  gap: 12px;
+}
+
+.locker-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.locker-section {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #a8b0b5;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.silver-card {
+  width: 100%;
+  background: linear-gradient(180deg, #e3e4e5 0%, #aab1b5 100%);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 8px 16px rgba(0,0,0,0.6);
+  border: 1px solid #7a8288;
+  position: relative;
+  color: #000;
+}
+
+.user-profile-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  margin-bottom: 16px;
+}
+
+.avatar-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #222;
+  border: 3px solid #004C54; /* Eagles Teal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.avatar-icon {
+  font-size: 36px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #333;
+}
+
+.user-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.1;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.stat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: #444;
+}
+
+.stat-value {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-icon {
+  font-size: 16px;
+}
+
+.card-headline {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.scouting-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scouting-details p {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #222;
+  line-height: 1.3;
+}
+
+.scouting-details strong {
+  color: #000;
+  font-weight: 700;
+}
+
+.playbook-card {
+  padding-bottom: 24px;
+}
+
+.playbook-list {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.referee-placeholder {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  color: #000;
+}

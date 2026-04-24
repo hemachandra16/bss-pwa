@@ -1,412 +1,242 @@
-/* HomeBasePage.css — Grit and Glory design system tokens */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
-/* ── Page shell ──────────────────────────────────────────── */
-.homebase {
-  min-height: 100vh;
-  background: #0d0d0d;
-  color: #fddbd5;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-}
-
-/* ── Header ──────────────────────────────────────────────── */
+/* HEADER */
 .hb-header {
-  background: linear-gradient(180deg, #200f0c 0%, #0d0d0d 100%);
-  padding: 20px 16px 24px;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-.hb-header__top {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  align-items: center;
+  padding-top: 10px;
 }
 
-.hb-header__logo {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-}
-
-.hb-logout-btn {
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #ae8882;
-  background: none;
-  border: 1px solid #2a2a2a;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.hb-logout-btn:hover {
-  color: #cc0000;
-  border-color: #cc0000;
-}
-
-/* Welcome headline */
-.hb-welcome {
-  font-family: 'Oswald', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #fddbd5;
-  margin-bottom: 20px;
-}
-.hb-welcome__name {
-  color: #feb700;
-}
-
-/* ── Grit Meter ──────────────────────────────────────────── */
-.hb-grit {
-  width: 100%;
-}
-.hb-grit__header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-.hb-grit__label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #ae8882;
-}
-.hb-grit__value {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: #feb700;
-}
-.hb-grit__track {
-  width: 100%;
-  height: 8px;
-  background: #2a2a2a;
-  border-radius: 0;
-  overflow: hidden;
-}
-.hb-grit__fill {
-  height: 100%;
-  background: linear-gradient(90deg, #cc0000, #feb700);
-  transition: width 0.6s ease;
-  position: relative;
-}
-.hb-grit__fill::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 3px,
-    rgba(0,0,0,0.15) 3px,
-    rgba(0,0,0,0.15) 6px
-  );
-}
-
-/* ── Sections ────────────────────────────────────────────── */
-.hb-section {
-  padding: 24px 16px;
-  border-bottom: 1px solid #1e1e1e;
-}
-
-.hb-section__title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #ae8882;
-  margin-bottom: 16px;
+.hb-header-left {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-.hb-section__icon {
-  font-size: 16px;
-}
-
-/* ── Scoreboard ──────────────────────────────────────────── */
-.hb-scores {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.hb-score-card {
-  background: rgba(13, 13, 13, 0.92);
-  border: 1px solid #2a2a2a;
-  padding: 12px 16px;
-  transition: border-color 0.2s ease;
-}
-.hb-score-card--live {
-  border-color: #cc0000;
-}
-.hb-score-card:hover {
-  border-color: #5e3f3a;
-}
-
-.hb-score-card__badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.hb-live-dot {
-  width: 8px;
-  height: 8px;
-  background: #cc0000;
-  border-radius: 50%;
-  animation: pulse-dot 1.5s infinite;
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(204,0,0,0.5); }
-  50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(204,0,0,0); }
-}
-
-.hb-score-card__sport {
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #ae8882;
-}
-.hb-score-card--live .hb-score-card__sport {
-  color: #cc0000;
-}
-.hb-score-card__time {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: #5e3f3a;
-  margin-left: auto;
-}
-
-.hb-score-card__teams {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 12px;
 }
 
-.hb-score-card__team {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  flex: 1;
-}
-.hb-score-card__team--home {
-  justify-content: flex-end;
-  text-align: right;
-}
-
-.hb-score-card__abbr {
-  font-family: 'Oswald', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #fddbd5;
-}
-.hb-score-card__team--home .hb-score-card__abbr {
-  color: #feb700;
-}
-
-.hb-score-card__score {
-  font-family: 'Inter', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.hb-score-card__vs {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: #5e3f3a;
-  text-transform: uppercase;
-}
-
-/* ── CTA Cards (Vent Room / Tailgate Room) ───────────────── */
-.hb-cta-card {
+.hb-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #A0A0A5;
   display: flex;
   align-items: center;
-  gap: 16px;
-  background: rgba(13, 13, 13, 0.92);
-  border: 1px solid #2a2a2a;
-  padding: 20px 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  justify-content: center;
+  color: #1C1C1E;
 }
-.hb-cta-card:hover {
-  border-color: #cc0000;
-  transform: translateX(4px);
-}
-.hb-cta-card--vent:hover  { border-color: #cc0000; }
-.hb-cta-card--tailgate:hover { border-color: #feb700; }
-
-.hb-cta-card__icon {
+.hb-avatar .material-symbols-outlined {
   font-size: 32px;
-  flex-shrink: 0;
 }
 
-.hb-cta-card__content {
-  flex: 1;
-  min-width: 0;
+.hb-welcome-text {
+  display: flex;
+  flex-direction: column;
 }
 
-.hb-cta-card__title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 18px;
+.hb-welcome-line1 {
+  font-size: 11px;
+  color: var(--color-text-main);
+  letter-spacing: 0.5px;
+}
+
+.hb-welcome-line2 {
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin-bottom: 4px;
+  color: var(--color-text-main);
+  line-height: 1.2;
 }
 
-.hb-cta-card__sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #ae8882;
-  line-height: 1.4;
+.hb-grit-meter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
 }
 
-.hb-cta-card__arrow {
-  font-size: 20px;
-  color: #5e3f3a;
-  flex-shrink: 0;
-  transition: color 0.2s;
+.hb-grit-chart {
+  width: 90px;
+  height: 30px;
+  background-color: #3A3A3C;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #4a4a4c;
 }
-.hb-cta-card:hover .hb-cta-card__arrow {
-  color: #feb700;
-}
-
-/* ── Quick Links grid ────────────────────────────────────── */
-.hb-links-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+.hb-grit-chart svg {
+  width: 100%;
+  height: 100%;
 }
 
-.hb-link-card {
+.hb-grit-label {
+  font-size: 9px;
+  color: var(--color-text-main);
+}
+
+/* SCOREBOARD */
+.hb-scoreboard-container {
+  background-color: var(--color-bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hb-scoreboard-title {
+  background-color: #3A3A3C;
+  padding: 8px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--color-text-main);
+}
+
+.hb-scoreboard-content {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hb-game {
+  text-align: center;
+}
+
+.hb-game-featured {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 20px 12px;
-  background: rgba(30, 30, 30, 0.6);
-  border: 1px solid #2a2a2a;
-  color: #fddbd5;
-  font-family: 'Oswald', sans-serif;
+  gap: 4px;
+}
+
+.hb-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hb-team-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.hb-team-name-sub {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.hb-status-live {
+  color: var(--color-accent-red);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 1px;
+}
+
+.hb-status-muted {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.hb-score-large {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  line-height: 1;
+  margin: 4px 0;
+}
+
+.hb-divider {
+  height: 1px;
+  background-color: var(--color-border);
+  width: 100%;
+}
+
+.hb-game-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hb-score-small {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hb-game-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.hb-matchup {
+  font-size: 14px;
+}
+
+/* COMMUNITY CARDS */
+.hb-community-cards {
+  display: flex;
+  gap: 12px;
+}
+
+.hb-card {
+  flex: 1;
+  background-color: var(--color-bg-card);
+  border-radius: 12px;
+  padding: 16px 12px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  color: var(--color-text-main);
+  text-align: center;
+  transition: transform 0.1s;
+}
+
+.hb-card:active {
+  transform: scale(0.98);
+}
+
+.hb-card-top {
+  font-size: 9px;
+  color: var(--color-text-muted);
   text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.hb-link-card:hover {
-  border-color: #feb700;
-  color: #feb700;
-}
-.hb-link-card .material-symbols-outlined {
-  font-size: 28px;
-  color: #ae8882;
-  transition: color 0.2s;
-}
-.hb-link-card:hover .material-symbols-outlined {
-  color: #feb700;
+  margin-bottom: 4px;
 }
 
-/* ── Bottom nav spacer ───────────────────────────────────── */
-.hb-nav-spacer {
-  height: 72px;
+.hb-card-title {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   DESKTOP (≥ 768px) — based on Home Base Desktop Command Center
-   Full-bleed dark background, generous padding, no max-width gaps
-   ═══════════════════════════════════════════════════════════ */
-@media (min-width: 768px) {
-  .hb-header {
-    padding: 32px 48px 28px;
-  }
-
-  .hb-header__logo {
-    width: 56px;
-    height: 56px;
-  }
-
-  .hb-welcome {
-    font-size: 36px;
-  }
-
-  .hb-section {
-    padding: 32px 48px;
-  }
-
-  .hb-scores {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .hb-links-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-
-  .hb-cta-card {
-    padding: 24px 28px;
-  }
+.hb-card-icon {
+  margin-bottom: 24px;
+}
+.hb-card-icons {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
 }
 
-@media (min-width: 1024px) {
-  .hb-header {
-    padding: 40px 80px 32px;
-  }
-
-  .hb-section {
-    padding: 36px 80px;
-  }
-
-  .hb-scores {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .hb-welcome {
-    font-size: 42px;
-  }
+.icon-large {
+  font-size: 48px;
+}
+.hb-card-icon-red {
+  color: var(--color-accent-red);
+}
+.hb-icon-red {
+  color: var(--color-accent-red);
+}
+.hb-icon-yellow {
+  color: #FFC107; /* Beer icon color approx */
 }
 
-@media (min-width: 1440px) {
-  .hb-header {
-    padding: 48px 120px 36px;
-  }
-
-  .hb-section {
-    padding: 40px 120px;
-  }
-
-  .hb-welcome {
-    font-size: 48px;
-  }
-
-  .hb-cta-card {
-    padding: 28px 36px;
-  }
-
-  .hb-cta-card__title {
-    font-size: 22px;
-  }
+.hb-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+  color: var(--color-text-muted);
+  text-align: left;
+  line-height: 1.2;
 }
 
+.icon-small {
+  font-size: 14px;
+}

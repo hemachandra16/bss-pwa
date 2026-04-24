@@ -1,38 +1,45 @@
-/**
- * BottomNav.jsx
- * The Concourse-style bottom navigation bar.
- * Matches the Stitch Home Base mobile screen nav items:
- *   Home Base | Concourse | Locker Room | Picket Line | Philly Guide
- */
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import './BottomNav.css'
 
 const navItems = [
-  { id: 'home',      label: 'Home Base',    icon: 'dashboard',    path: '/home' },
-  { id: 'concourse', label: 'Concourse',    icon: 'stadium',      path: '/concourse' },
-  { id: 'locker',    label: 'Locker Room',  icon: 'inventory_2',  path: '/home' },
-  { id: 'picket',    label: 'Picket Line',  icon: 'campaign',     path: '/home' },
-  { id: 'guide',     label: 'Philly Guide', icon: 'explore',      path: '/home' },
+  { id: 'home',       label: 'HOME BASE',     icon: 'home',       path: '/home' },
+  { id: 'concourse',  label: 'CONCOURSE',     icon: 'stadium',    path: '/concourse' },
+  { id: 'locker',     label: 'LOCKER ROOM',   icon: 'checkroom',  path: '/locker-room' },
+  { id: 'picket',     label: 'PICKET LINE',   icon: 'newspaper',  path: '/picket-line' },
+  { id: 'guide',      label: 'PHILLY GUIDE',  icon: 'map',        path: '/philly-guide' }
 ]
 
 export default function BottomNav() {
   const navigate = useNavigate()
   const location = useLocation()
+  const { logout } = useAuth()
+
+  const handleNav = (item) => {
+    if (item.isAction) {
+      // Simulate logout action and just go home for now, or stay
+      if (item.id === 'profile') {
+        logout && logout()
+        navigate('/')
+      }
+    } else {
+      navigate(item.path)
+    }
+  }
 
   return (
     <nav className="bottom-nav" aria-label="Main Navigation">
       {navItems.map(item => {
-        const isActive = location.pathname === item.path && 
-          (item.id === 'home' ? location.pathname === '/home' : true)
+        const isActive = location.pathname === item.path
         return (
           <button
             key={item.id}
             id={`nav-${item.id}`}
-            className={`bottom-nav__item${location.pathname === item.path && item.id === (location.pathname === '/home' ? 'home' : location.pathname === '/concourse' ? 'concourse' : '') ? ' bottom-nav__item--active' : ''}`}
-            onClick={() => navigate(item.path)}
+            className={`bottom-nav__item ${isActive ? 'bottom-nav__item--active' : ''}`}
+            onClick={() => handleNav(item)}
           >
             <span className="material-symbols-outlined bottom-nav__icon">{item.icon}</span>
-            <span className="bottom-nav__label">{item.label}</span>
+            <span className="bottom-nav__label" style={{ whiteSpace: 'pre-line' }}>{item.label}</span>
           </button>
         )
       })}
