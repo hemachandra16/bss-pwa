@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 import LoginPage        from './pages/LoginPage'
+import SignupPage       from './pages/SignupPage'
 import HomeBasePage       from './pages/HomeBasePage'
 import ConcoursePage      from './pages/ConcoursePage'
 import VentRoomPage       from './pages/VentRoomPage'
@@ -14,6 +15,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
       <Route path="/home" element={<HomeBasePage />} />
       <Route path="/login" element={<Navigate to="/" replace />} />
       <Route path="/concourse" element={<ConcoursePage />} />

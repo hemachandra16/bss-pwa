@@ -39,13 +39,17 @@ html, body, #root {
 }
 
 body {
-  font-family: var(--font-family-base);
-  -webkit-font-smoothing: antialiased;
-  background-image: url('./assets/street_bg.png');
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* background-color: #111; <- Present logic saved here */
+  background-image: url('/src/assets/street_bg.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: var(--color-text-main);
+  line-height: 1.5;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   display: flex;
   justify-content: center; /* Center the app container on desktop */
 }

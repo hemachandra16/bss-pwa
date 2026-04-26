@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import BottomNav from '../components/BottomNav'
 import fansBg from '../assets/street_bg.png'
-import bssLogo from '../assets/bss_logo.png'
+import bssLogo from '../assets/bss_logo_trans.png'
 import './LockerRoomPage.css'
 
 export default function LockerRoomPage() {

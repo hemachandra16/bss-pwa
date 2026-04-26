@@ -6,6 +6,7 @@ import phillyFootball from '../assets/philly_football.png'
 import phillyBaseball from '../assets/philly_baseball.png'
 import phillyHockey from '../assets/philly_hockey.png'
 import phillyBasketball from '../assets/philly_basketball.png'
+import phillyUnion from '../assets/philly_union.svg'
 
 export default function ConcoursePage() {
   const navigate = useNavigate()
@@ -43,11 +44,17 @@ export default function ConcoursePage() {
               </div>
               <span className="cc-team-name">FLYERS</span>
             </button>
-            <button className="cc-team-card union-border" onClick={() => navigate('/vent-room')}>
+            <button className="cc-team-card sixers-border" onClick={() => navigate('/vent-room')}>
               <div className="cc-team-logo-placeholder">
                 <img src={phillyBasketball} alt="Philly Basketball" className="cc-team-logo-img" />
               </div>
               <span className="cc-team-name">SIXERS</span>
+            </button>
+            <button className="cc-team-card union-border" onClick={() => navigate('/vent-room')}>
+              <div className="cc-team-logo-placeholder">
+                <img src={phillyUnion} alt="Philly Union" className="cc-team-logo-img" />
+              </div>
+              <span className="cc-team-name">UNION</span>
             </button>
           </div>
         </section>

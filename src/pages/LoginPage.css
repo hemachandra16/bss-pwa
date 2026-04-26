@@ -24,7 +24,7 @@
 .login-container {
   width: 100%;
   max-width: 420px;
-  background-color: rgba(24, 24, 26, 0.95);
+  background-color: rgba(24, 24, 26, 0.85); /* Slightly transparent to show street bg on mobile */
   min-height: 100vh; /* Mobile stretches full height */
   display: flex;
   flex-direction: column;
@@ -123,11 +123,38 @@
   font-weight: bold;
 }
 
+.sso-google {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.sso-facebook {
+  background-color: #1877F2;
+  color: #ffffff;
+}
+
+.sso-icon-google {
+  background-color: #ffffff;
+}
+.sso-icon-google img {
+  width: 18px;
+  height: 18px;
+}
+
+.sso-icon-fb {
+  background-color: transparent;
+}
+.sso-icon-fb img {
+  width: 18px;
+  height: 18px;
+}
+
 .sso-google-new {
-  background-color: #1a73e8;
+  background-color: #ffffff;
+  color: #000000;
 }
 .google-wrapper {
-  background-color: #fff;
+  background-color: transparent;
 }
 .google-g {
   color: #1a73e8;
@@ -135,15 +162,18 @@
 }
 
 .sso-facebook-new {
-  background-color: #333333;
+  background-color: #1877F2;
+  color: #ffffff;
 }
 .fb-wrapper {
-  background-color: #fff;
+  background-color: transparent;
 }
 .fb-f {
-  color: #333333;
+  color: #ffffff;
   font-size: 16px;
   font-family: serif;
+  font-style: italic;
+  font-weight: bold;
 }
 
 /* Divider */
