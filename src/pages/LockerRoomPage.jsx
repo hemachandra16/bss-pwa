@@ -43,14 +43,14 @@ export default function LockerRoomPage() {
                 
                 <div className="stats-row">
                   <div className="stat-col">
-                    <span className="stat-label">GRIT BALANCE:</span>
+                    <span className="stat-label">GRIT COINS:</span>
                     <div className="stat-value">
                       <span className="material-symbols-outlined stat-icon">monetization_on</span>
                       1,250
                     </div>
                   </div>
                   <div className="stat-col">
-                    <span className="stat-label">RANK:</span>
+                    <span className="stat-label">STREET CRED:</span>
                     <div className="stat-value">
                       <span className="material-symbols-outlined stat-icon">shield</span>
                       VETERAN
@@ -87,8 +87,8 @@ export default function LockerRoomPage() {
                 <ol className="playbook-list">
                   <li>JOIN LIVE GAME VENT ROOMS</li>
                   <li>KEEP IT HIGH ENERGY, NO HARASSMENT</li>
-                  <li>EARN GRIT POINTS FOR ENGAGEMENT</li>
-                  <li>TOP VENTERS LEVEL UP RANKS</li>
+                  <li>EARN GRIT COINS FOR ENGAGEMENT</li>
+                  <li>TOP VENTERS LEVEL UP STREET CRED</li>
                 </ol>
                 <div className="referee-placeholder">
                   <span className="material-symbols-outlined">sports</span>

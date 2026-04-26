@@ -25,14 +25,14 @@ export default function VentRoomPage() {
       {/* GRIT STATS */}
       <div className="vr-grit-stats">
         <div className="vr-grit-header">
-          <span className="vr-grit-label">GRIT COUNTER</span>
-          <span className="vr-grit-points">GRIT POINTS: 1450</span>
+          <span className="vr-grit-label">GRIT COIN COUNTER</span>
+          <span className="vr-grit-points">GRIT COINS: 1450</span>
         </div>
         <div className="vr-grit-multiplier">
           <div className="vr-grit-red-flag">
             <span className="material-symbols-outlined vr-flag-icon">sports_score</span>
           </div>
-          <span className="vr-grit-multiplier-text">2x GRIT (EAGLES PLAYOFF MODE ACTIVE)</span>
+          <span className="vr-grit-multiplier-text">2x COINS (EAGLES PLAYOFF MODE ACTIVE)</span>
         </div>
       </div>
 

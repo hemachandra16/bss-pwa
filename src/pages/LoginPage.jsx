@@ -98,7 +98,7 @@ export default function LoginPage() {
 
             <div className="login-footer-new">
               <strong>FREE AGENT POLICY:</strong> Community access is 100% FREE.<br/>
-              Registration is required only to track your GRIT points, earn<br/>
+              Registration is required only to track your GRIT coins, earn<br/>
               rewards, and secure your spot in the Vent Room.
             </div>
           </div>

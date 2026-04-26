@@ -7,6 +7,7 @@ import phillyBaseball from '../assets/philly_baseball.png'
 import phillyHockey from '../assets/philly_hockey.png'
 import phillyBasketball from '../assets/philly_basketball.png'
 import phillyUnion from '../assets/philly_union.svg'
+import bssLogo from '../assets/bss_logo_trans.png'
 
 export default function ConcoursePage() {
   const navigate = useNavigate()
@@ -15,7 +16,9 @@ export default function ConcoursePage() {
     <div className="concourse-screen page-container">
       {/* HEADER */}
       <header className="cc-header">
-        <div className="cc-header-title">BSS: THE CONCOURSE</div>
+        <div className="cc-header-logo-wrapper">
+          <img src={bssLogo} alt="Broad Street Style" className="cc-header-logo" />
+        </div>
         <div className="cc-avatar" onClick={() => navigate('/profile')} style={{cursor: 'pointer'}}>
           <span className="material-symbols-outlined">account_circle</span>
         </div>
@@ -24,7 +27,7 @@ export default function ConcoursePage() {
       <div className="cc-scroll-area">
         {/* COMMUNITIES */}
         <section className="cc-section">
-          <h2 className="cc-section-title">The Concourse (Communities)</h2>
+          <h2 className="cc-section-title">PHILLY TEAM PICKS</h2>
           <div className="cc-communities-grid">
             <button className="cc-team-card eagles-border" onClick={() => navigate('/vent-room')}>
               <div className="cc-team-logo-placeholder">
@@ -50,7 +53,7 @@ export default function ConcoursePage() {
               </div>
               <span className="cc-team-name">SIXERS</span>
             </button>
-            <button className="cc-team-card union-border" onClick={() => navigate('/vent-room')}>
+            <button className="cc-team-card union-border cc-team-centered" onClick={() => navigate('/vent-room')}>
               <div className="cc-team-logo-placeholder">
                 <img src={phillyUnion} alt="Philly Union" className="cc-team-logo-img" />
               </div>

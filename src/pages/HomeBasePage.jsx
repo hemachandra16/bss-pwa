@@ -26,7 +26,7 @@ export default function HomeBasePage() {
               <polyline points="0,20 10,15 20,22 30,10 40,18 50,5 60,12 70,8 80,2 90,10 100,0" fill="none" stroke="#ff4d4d" strokeWidth="2"/>
             </svg>
           </div>
-          <div className="hb-grit-label">1,250 GRIT POINTS</div>
+          <div className="hb-grit-label">1,250 GRIT COINS</div>
         </div>
       </header>
 
@@ -83,7 +83,7 @@ export default function HomeBasePage() {
 
         <button className="hb-card" onClick={() => navigate('/tailgate-room')}>
           <div className="hb-card-top">COMMUNITY ENTRY</div>
-          <div className="hb-card-title">THE TAILGATE<br/>ROOM</div>
+          <div className="hb-card-title">THE TAILGATE</div>
           <div className="hb-card-icons">
             <span className="material-symbols-outlined icon-large hb-icon-red">outdoor_grill</span>
             <span className="material-symbols-outlined icon-large hb-icon-yellow">sports_bar</span>

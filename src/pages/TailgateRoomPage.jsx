@@ -27,14 +27,14 @@ export default function TailgateRoomPage() {
           </div>
           <div className="tg-icon-btn active">
             <span className="material-symbols-outlined">stadium</span>
-            <span className="tg-icon-label">TAILGATE<br/>ROOM</span>
+            <span className="tg-icon-label">THE<br/>TAILGATE</span>
           </div>
         </div>
       </header>
 
       {/* BANNER */}
       <div className="tg-banner">
-        <span className="tg-banner-title">THE TAILGATE ROOM:</span>
+        <span className="tg-banner-title">THE TAILGATE:</span>
         <span className="tg-banner-subtitle">PHILLY Gameday Hype & Meetups</span>
       </div>
 
