@@ -72,30 +72,36 @@
 }
 
 .cc-team-card {
-  background-color: #262626;
-  border: 1px solid #333;
+  position: relative;
+  background-color: #1e2024;
   border-radius: 12px;
   padding: 12px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
 }
 .cc-team-card:active {
-  background-color: #333;
+  transform: scale(0.98);
 }
 
 .cc-team-logo-placeholder {
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-  border: 1.5px solid #d32f2f; /* Red border */
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(211, 47, 47, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
   overflow: hidden;
+  flex-shrink: 0;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
 }
 
 .cc-team-logo-img {
@@ -111,10 +117,58 @@
 
 .cc-team-name {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: #eee;
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.5px;
+  z-index: 2;
   text-transform: uppercase;
+}
+
+/* GLOW STYLES */
+.cc-team-card.eagles-border {
+  border-color: rgba(0, 200, 100, 0.6);
+  box-shadow: 0 0 15px rgba(0, 200, 100, 0.2), inset 0 0 20px rgba(0, 200, 100, 0.1);
+}
+.cc-team-card.eagles-border .cc-team-logo-placeholder {
+  border-color: rgba(0, 200, 100, 0.6);
+  box-shadow: 0 0 10px rgba(0, 200, 100, 0.3);
+}
+
+.cc-team-card.phillies-border {
+  border-color: rgba(255, 50, 50, 0.6);
+  box-shadow: 0 0 15px rgba(255, 50, 50, 0.2), inset 0 0 20px rgba(255, 50, 50, 0.1);
+}
+.cc-team-card.phillies-border .cc-team-logo-placeholder {
+  border-color: rgba(255, 50, 50, 0.6);
+  box-shadow: 0 0 10px rgba(255, 50, 50, 0.3);
+}
+
+.cc-team-card.flyers-border {
+  border-color: rgba(255, 120, 0, 0.6);
+  box-shadow: 0 0 15px rgba(255, 120, 0, 0.2), inset 0 0 20px rgba(255, 120, 0, 0.1);
+}
+.cc-team-card.flyers-border .cc-team-logo-placeholder {
+  border-color: rgba(255, 120, 0, 0.6);
+  box-shadow: 0 0 10px rgba(255, 120, 0, 0.3);
+}
+
+.cc-team-card.sixers-border {
+  border-color: rgba(0, 120, 255, 0.6);
+  box-shadow: 0 0 15px rgba(0, 120, 255, 0.2), inset 0 0 20px rgba(0, 120, 255, 0.1);
+}
+.cc-team-card.sixers-border .cc-team-logo-placeholder {
+  border-color: rgba(0, 120, 255, 0.6);
+  box-shadow: 0 0 10px rgba(0, 120, 255, 0.3);
+}
+
+.cc-team-card.union-border {
+  border-color: rgba(255, 200, 50, 0.6);
+  box-shadow: 0 0 15px rgba(255, 200, 50, 0.2), inset 0 0 20px rgba(255, 200, 50, 0.1);
+}
+.cc-team-card.union-border .cc-team-logo-placeholder {
+  border-color: rgba(255, 200, 50, 0.6);
+  box-shadow: 0 0 10px rgba(255, 200, 50, 0.3);
 }
 
 /* BOX OFFICE */

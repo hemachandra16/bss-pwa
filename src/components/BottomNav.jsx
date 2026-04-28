@@ -4,7 +4,7 @@ import './BottomNav.css'
 
 const navItems = [
   { id: 'home',       label: 'HOME BASE',     icon: 'home',       path: '/home' },
-  { id: 'concourse',  label: 'CONCOURSE',     icon: 'stadium',    path: '/concourse' },
+  { id: 'concourse',  label: 'THE TAILGATE',     icon: 'stadium',    path: '/concourse' },
   { id: 'locker',     label: 'LOCKER ROOM',   icon: 'checkroom',  path: '/locker-room' },
   { id: 'picket',     label: 'PICKET LINE',   icon: 'newspaper',  path: '/picket-line' },
   { id: 'guide',      label: 'PHILLY GUIDE',  icon: 'map',        path: '/philly-guide' }

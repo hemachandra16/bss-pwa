@@ -51,7 +51,7 @@ export default function HomeBasePage() {
           
           {/* Game 2 */}
           <div className="hb-game hb-game-row">
-            <div className="hb-team-name">UNION <span className="hb-status-muted">(FINAL)</span></div>
+            <div className="hb-team-name">PHILLY SOCCER <span className="hb-status-muted">(FINAL)</span></div>
             <div className="hb-score-small">2 - 2 <span className="hb-status-muted">(Draw)</span></div>
           </div>
           
@@ -81,7 +81,7 @@ export default function HomeBasePage() {
           </div>
         </button>
 
-        <button className="hb-card" onClick={() => navigate('/tailgate-room')}>
+        <button className="hb-card" onClick={() => navigate('/concourse')}>
           <div className="hb-card-top">COMMUNITY ENTRY</div>
           <div className="hb-card-title">THE TAILGATE</div>
           <div className="hb-card-icons">
